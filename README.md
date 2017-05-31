@@ -6,8 +6,8 @@
 ## User Stories
 ```
 As a user,
-So that I can revisit my favourite links,
-I want to be able to save them.
+So that I can go quickly to websites that I regularly visit,
+I would like to see a list of links on the homepage. 
 
 As a user,
 So that I can view my saved links,
