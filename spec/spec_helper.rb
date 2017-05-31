@@ -1,9 +1,10 @@
 require 'capybara'
 require 'capybara/rspec'
-require_relative '../app.rb'
 require_relative '../lib/models/link.rb'
 
 ENV['RACK_ENV'] = 'test'
+
+require File.join(File.dirname(__FILE__), '..', './app.rb')
 
 Capybara.app = DatabaseApp
 
