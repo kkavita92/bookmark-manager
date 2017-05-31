@@ -1,7 +1,9 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
 
-DataMapper.setup(:default, 'postgres://localhost/bookmark_manager_test')
+DATABASE = "postgres://localhost/bookmark_manager_#{ENV['RACK_ENV']}"
+
+DataMapper.setup(:default, DATABASE)
 
 class Link
   include DataMapper::Resource
