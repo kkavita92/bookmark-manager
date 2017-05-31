@@ -12,4 +12,13 @@ class DatabaseApp < Sinatra::Base
     erb :links
   end
 
+  get '/links/new' do
+    erb(:new_link)
+  end
+
+  post '/links' do
+    redirect '/links'
+  end
+
+
 end
