@@ -6,7 +6,7 @@ require './lib/models/link.rb'
 class DatabaseApp < Sinatra::Base
 
   get '/' do
-
+    redirect '/links'
   end
 
   get '/links' do
