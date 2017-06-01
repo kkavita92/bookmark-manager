@@ -1,8 +1,7 @@
 ENV['RACK_ENV'] ||= "development"
 
 require 'sinatra/base'
-require './lib/models/link.rb'
-require './lib/models/tag.rb'
+require_relative 'data_mapper_setup'
 
 class DatabaseApp < Sinatra::Base
 
