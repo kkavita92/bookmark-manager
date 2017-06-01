@@ -7,7 +7,6 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || DATABASE)
 class Tag
   include DataMapper::Resource
   #has n, :tags, through: Resource
-
   property :id, Serial
   property :name, String
 

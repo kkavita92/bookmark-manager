@@ -2,6 +2,7 @@ ENV['RACK_ENV'] ||= "development"
 
 require 'sinatra/base'
 require './lib/models/link.rb'
+require './lib/models/tag.rb'
 
 class DatabaseApp < Sinatra::Base
 
@@ -19,7 +20,10 @@ class DatabaseApp < Sinatra::Base
   end
 
   post '/links' do
-    Link.create(name: params[:name], address: params[:address])
+    link = Link.create(name: params[:name], address: params[:address])
+    tag = Tag.first_or_create(name: params[:tag])
+    link.tags << tag
+    link.save
     redirect '/links'
   end
 
