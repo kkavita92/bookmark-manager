@@ -14,7 +14,7 @@ class DatabaseApp < Sinatra::Base
   end
 
   get '/' do
-    redirect '/links'
+    redirect '/users/new'
   end
 
   post '/users' do
