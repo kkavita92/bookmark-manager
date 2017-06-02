@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '2.4.1'
 
-
+  gem 'bcrypt'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'data_mapper'
