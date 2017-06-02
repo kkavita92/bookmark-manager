@@ -4,10 +4,11 @@ require 'sinatra/base'
 require_relative 'data_mapper_setup'
 require 'sinatra/flash'
 
+
 class DatabaseApp < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
-  set :session_secret, 'super secret'
+  set :session_secret, 'secret'
 
   helpers do
     def current_user
@@ -27,7 +28,7 @@ class DatabaseApp < Sinatra::Base
       session[:user_id] = user.id
       redirect '/links'
     else
-      flash.now[:error] = "Password and confirmation password do not match"
+      flash.next[:error] = "Password and confirmation password do not match"
       redirect '/users/new'
     end
   end
