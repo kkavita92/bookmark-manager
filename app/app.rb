@@ -20,9 +20,10 @@ class DatabaseApp < Sinatra::Base
 
   post '/links' do
     link = Link.create(name: params[:name], address: params[:address])
-    tag = Tag.first_or_create(name: params[:tag])
-    link.tags << tag
-    link.save
+    params[:tag].split(' ').each do |tag|
+      link.tags << Tag.first_or_create(name: tag)
+      link.save
+    end
     redirect '/links'
   end
 
