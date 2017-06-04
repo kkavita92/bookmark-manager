@@ -21,12 +21,12 @@ class DatabaseApp < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params[:email],
+    @user = User.new(email: params[:email],
                        password: params[:password],
                        password_confirmation: params[:password_confirmation])
-    if user.save
-      session[:user_id] = user.id
-      redirect '/links'
+    if @user.save
+      session[:user_id] = @user.id
+      redirect to('/')
     else
       flash.next[:error] = "Password and confirmation password do not match"
       redirect '/users/new'
@@ -34,6 +34,7 @@ class DatabaseApp < Sinatra::Base
   end
 
   get '/users/new' do
+    @user = User.new
     erb :'/users/new'
   end
 
